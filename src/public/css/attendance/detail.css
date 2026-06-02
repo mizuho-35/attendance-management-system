@@ -1,0 +1,116 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 20px;
+}
+
+.table__row {
+    height: 70px;
+    border-bottom: 3px solid #f0eff2;
+    text-align: left;
+}
+
+.table__header {
+    width: 200px;
+    padding-left: 30px;
+    color: #737373;
+}
+
+.table__detail {
+    padding: 12px 16px;
+    width: 60%;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+
+.table__detail-cell {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+    width: 50%;
+}
+
+.form-input {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 16px;
+    font-family: inherit;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
+    color: #333;
+    box-sizing: border-box;
+    resize: none;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #999;
+}
+
+.table__detail-cell {
+    font-weight: bold;
+}
+
+.time-input::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+.time-input::-webkit-inner-spin-button,
+.time-input::-webkit-clear-button {
+    display: none;
+}
+
+.time-input::-moz-focus-inner {
+    border: 0;
+}
+
+.time-input {
+    width: 140px;
+    height: 30px;
+    text-align: center;
+}
+
+.btn--small {
+    background-color: #000;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    width: 100px;
+    height: 40px;
+    align-self: flex-end;
+}
+
+.text-gray {
+    color: red;
+}
+
+.alert-success {
+    background: #e6ffed;
+    border: 1px solid #28a745;
+    color: #155724;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.approved {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.approved-btn {
+    background-color: #696969;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    width: 100px;
+    height: 40px;
+    align-self: flex-end;
+}

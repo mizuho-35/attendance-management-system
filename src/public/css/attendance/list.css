@@ -1,0 +1,82 @@
+.table__head .table__row {
+    border-bottom: 4px solid #f0eff2;
+}
+
+.table__body .table__row {
+    border-bottom: 3px solid #f0eff2;
+}
+
+.table__row {
+    height: 45px;
+}
+
+.attendance-detail {
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+}
+
+.arrow {
+    display: flex;
+    gap: 10px;
+    font-size: 14px;
+    color: #555;
+    text-decoration: none;
+    text-align: center;
+    padding: 4px 12px;
+    cursor: pointer;
+}
+
+.prev-date::before {
+    content: "←";
+    margin-right: 4px;
+}
+
+.next-date::after {
+    content: "→";
+    font-weight: bold;
+}
+
+.date-picker-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 10px;
+}
+
+.calendar-icon {
+    font-size: 1.2rem;
+}
+
+.display-date {
+    font-weight: bold;
+}
+
+.hidden-input {
+    width: 0;
+    height: 0;
+    border: none;
+    visibility: hidden;
+    position: absolute;
+}
+
+.request-tabs {
+    width: 100%;
+    display: flex;
+    gap: 50px;
+    padding: 10px 50px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #5f5f5f;
+    font-size: 16px;
+
+}
+
+.request-tabs a {
+    text-decoration: none;
+    color: #5f5f5f;
+}
+
+.request-tabs a.active {
+    color: #000;
+    font-weight: bold;
+}
