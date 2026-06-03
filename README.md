@@ -51,10 +51,6 @@ php artisan migrate
 ```
 php artisan db:seed
 ```
-8. 画像をstorageに保存する設定
-```
-php artisan storage:link
-```
 ## 使用技術（実行環境）
 - PHP 8.1
 - Laravel　8.83.29
@@ -79,10 +75,11 @@ php artisan storage:link
 
 ## ユニットテスト環境構築・実行
 以下の手順で、ユニットテストを実行しました。
-- `docker exec attendance-management-system-mysql-1 bash`
+- `docker exec attendance-management-system-mysql-1 sh`
 - `mysql -u root -p`パスワードでrootと入力
 - `CREATE DATABASE demo_test;`
+- `exit`
 - `docker-compose exec php bash`
 - `php artisan migrate:fresh --env=testing`
-- `./vendor/bin/phpunit`
+- `./vendor/bin/phpunit --testsuite=Feature`
 ※.env.testingにもStripeのAPIキーを設定してください。
