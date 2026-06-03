@@ -67,11 +67,19 @@ php artisan storage:link
 ## URL
 - 開発環境: http://localhost/
 - phpMyAdmin: http://localhost:8080/
+
+## テストアカウント
+- 名前：管理者
+- メールアドレス：admin@example.com
+- パスワード：password
 ---
+- 名前：スタッフ
+- メールアドレス：staff@example.com
+- パスワード：password
+
 ## ユニットテスト環境構築・実行
 以下の手順で、ユニットテストを実行しました。
-1. テスト用データベースの作成
-- `docker exec mysql bash`
+- `docker exec attendance-management-system-mysql-1 bash`
 - `mysql -u root -p`パスワードでrootと入力
 - `CREATE DATABASE demo_test;`
 - `docker-compose exec php bash`
