@@ -8,6 +8,11 @@
 
 @section('content')
 <div class="container">
+    @if (session('error'))
+        <div class="alert alert-error">
+            {{ session('error') }}
+        </div>
+    @endif
     <h1 class="page__title">
         @isset($user)
             {{ $user->name }}さんの勤怠
@@ -73,6 +78,16 @@
             @endforeach
         </tbody>
     </table>
+    @isset($user)
+    <div class="csv-export">
+        <form action="{{ route('admin.attendance.export') }}" method="POST">
+            @csrf
+            <input type="hidden" name="id" value="{{ $user->id }}">
+            <input type="hidden" name="month" value="{{ $currentMonth }}">
+            <button type="submit" class="btn--small">CSV出力</button>
+        </form>
+    </div>
+    @endisset
 </div>
 @endsection
 

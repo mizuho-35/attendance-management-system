@@ -5,14 +5,10 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\Work;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
     public function run()
     {
         User::create([
@@ -20,6 +16,13 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@example.com',
             'password' => Hash::make('password'),
             'role' => 1,
+            'email_verified_at' => now(),
+        ]);
+        User::create([
+            'name' => 'スタッフ',
+            'email' => 'staff@example.com',
+            'password' => Hash::make('password'),
+            'role' => 0,
             'email_verified_at' => now(),
         ]);
 

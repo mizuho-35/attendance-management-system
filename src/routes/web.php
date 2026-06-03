@@ -75,6 +75,9 @@ Route::middleware(['auth', 'role:1'])->group(function () {
     Route::get('/admin/attendance/staff/{id}', [AdminAttendanceController::class, 'staffMonthlyList'])
         ->name('admin.attendance.staff');
 
+    Route::post('/admin/attendance/export', [AdminAttendanceController::class, 'export'])
+        ->name('admin.attendance.export');
+
     Route::get('/stamp_correction_request/approve/{attendance_correct_request_id}', [AdminRequestController::class, 'show'])
         ->name('admin.request.show');
 

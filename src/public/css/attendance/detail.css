@@ -89,16 +89,6 @@
     color: red;
 }
 
-.alert-success {
-    background: #e6ffed;
-    border: 1px solid #28a745;
-    color: #155724;
-    padding: 12px 16px;
-    border-radius: 6px;
-    margin-bottom: 20px;
-    font-size: 14px;
-}
-
 .approved {
     display: flex;
     justify-content: flex-end;

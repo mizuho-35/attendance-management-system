@@ -32,15 +32,15 @@ class DetailRequest extends FormRequest
     {
         $validator->after(function ($validator) {
             $workStart = $this->input('work_start');
-            $workEnd   = $this->input('work_end');
+            $workEnd = $this->input('work_end');
 
             if ($workStart && $workEnd && $workStart > $workEnd) {
-                $validator->errors()->add('work_start', '出勤時間もしくは退勤時間が不適切な値です');
+                $validator->errors()->add('work_start', '出勤時間が不適切な値です');
             }
 
             foreach ($this->input('breaks', []) as $index => $break) {
                 $start = $break['start'] ?? null;
-                $end   = $break['end'] ?? null;
+                $end = $break['end'] ?? null;
 
                 if ($start) {
                     if ($workStart && $start < $workStart) {
@@ -58,5 +58,27 @@ class DetailRequest extends FormRequest
                 }
             }
         });
+    }
+
+    public function validatedWithUser()
+    {
+        $id = $this->route('id');
+
+        if ($id && $id != 0) {
+            $work = \App\Models\Work::find($id);
+            $userId = $work ? $work->user_id : ($this->input('user_id') ?? $this->query('user_id'));
+            $date = $work ? $work->work_date : ($this->input('work_date') ?? $this->query('date'));
+        } else {
+            $userId = $this->input('user_id') ?? $this->query('user_id');
+            $date = $this->input('work_date') ?? $this->query('date');
+        }
+
+        return [
+            'user_id' => $userId,
+            'work_date' => $date,
+            'work_start' => $this->work_start ? "{$date} {$this->work_start}:00" : null,
+            'work_end'  => $this->work_end ? "{$date} {$this->work_end}:00" : null,
+            'remarks' => $this->input('remarks'),
+        ];
     }
 }

@@ -2,11 +2,6 @@
 
 namespace App\Providers;
 
-use Illuminate\Http\Request;
-use App\Http\Requests\LoginRequest;
-use App\Http\Requests\AdminLoginRequest;
-use Illuminate\Support\Facades\Validator;
-use App\Models\Admin;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -62,7 +57,7 @@ class FortifyServiceProvider extends ServiceProvider
                     return $user;
                 }
                 throw ValidationException::withMessages([
-                    'email' => ['ログイン情報が登録されていません。'],
+                    'email' => ['ログイン情報が登録されていません'],
                 ]);
             }
 
@@ -73,7 +68,7 @@ class FortifyServiceProvider extends ServiceProvider
                 return $user;
             }
             throw ValidationException::withMessages([
-                'email' => ['ログイン情報が登録されていません。'],
+                'email' => ['ログイン情報が登録されていません'],
             ]);
         });
     }

@@ -9,11 +9,6 @@ use Carbon\Carbon;
 
 class BreakTimesTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
         $works = Work::all();

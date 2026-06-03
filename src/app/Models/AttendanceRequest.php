@@ -6,11 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use App\Models\Work;
-use App\Models\RequestDetail;
 
-class Request extends Model
+class AttendanceRequest extends Model
 {
     use HasFactory;
+    protected $table = 'requests';
+
     protected $fillable = [
         'user_id',
         'work_id',
@@ -31,6 +32,6 @@ class Request extends Model
 
     public function requestDetails()
     {
-        return $this->hasMany(RequestDetail::class);
+        return $this->hasMany(\App\Models\AttendanceRequestDetail::class, 'request_id');
     }
 }

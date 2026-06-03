@@ -9,39 +9,21 @@ use Carbon\Carbon;
 
 class WorksTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
-        $users = User::where('role', 0)->get();
-        $dates = [
-            '2026-04-01',
-            '2026-04-02',
-            '2026-04-03',
-            '2026-05-01',
-        ];
+        $staffUsers = User::where('role', 0)->get();
 
-        foreach ($users as $user) {
-            foreach ($dates as $date) {
+        foreach ($staffUsers as $user) {
+            for ($dayOffset = 0; $dayOffset < 3; $dayOffset++) {
+                $date = now()->subDays($dayOffset)->toDateString();
 
-                $breakMinutes = 60;
-                $breakH = floor($breakMinutes / 60);
-                $breakM = $breakMinutes % 60;
-
-                $workMinutes = 540;
-                $workH = floor($workMinutes / 60);
-                $workM = $workMinutes % 60;
-
-                Work::create([
-                    'user_id'     => $user->id,
-                    'work_date'   => $date,
-                    'work_start'  => Carbon::parse($date . ' 08:00'),
-                    'work_end'    => Carbon::parse($date . ' 18:00'),
-                    'break_total' => sprintf('%02d:%02d:00', $breakH, $breakM),
-                    'work_total'  => sprintf('%02d:%02d:00', $workH, $workM),
+                Work::factory()->create([
+                    'user_id' => $user->id,
+                    'work_date' => $date,
+                    'work_start' => "{$date} 09:00:00",
+                    'work_end' => "{$date} 18:00:00",
+                    'break_total' => '01:00:00',
+                    'work_total' => '08:00:00',
                 ]);
             }
         }
