@@ -75,8 +75,7 @@ php artisan db:seed
 
 ## ユニットテスト環境構築・実行
 以下の手順で、ユニットテストを実行しました。
-- `docker exec attendance-management-system-mysql-1 sh`
-- `mysql -u root -p`パスワードでrootと入力
+- `docker exec -it attendance-management-system-mysql-1 mysql -u root -p`パスワードでrootと入力
 - `CREATE DATABASE demo_test;`
 - `exit`
 - `docker-compose exec php bash`
