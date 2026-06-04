@@ -14,18 +14,21 @@ class WorksTableSeeder extends Seeder
         $staffUsers = User::where('role', 0)->get();
 
         foreach ($staffUsers as $user) {
-            for ($dayOffset = 0; $dayOffset < 3; $dayOffset++) {
-                $date = now()->subDays($dayOffset)->toDateString();
+
+            for ($dayOffset = 1; $dayOffset <= 5; $dayOffset++) {
+
+                $date = Carbon::today()->subDays($dayOffset)->toDateString();
 
                 Work::factory()->create([
-                    'user_id' => $user->id,
-                    'work_date' => $date,
-                    'work_start' => "{$date} 09:00:00",
-                    'work_end' => "{$date} 18:00:00",
+                    'user_id'     => $user->id,
+                    'work_date'   => $date,
+                    'work_start'  => "{$date} 09:00:00",
+                    'work_end'    => "{$date} 18:00:00",
                     'break_total' => '01:00:00',
-                    'work_total' => '08:00:00',
+                    'work_total'  => '08:00:00',
                 ]);
             }
         }
     }
 }
+
