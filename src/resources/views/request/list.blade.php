@@ -1,3 +1,4 @@
+<!-- 申請一覧画面（スタッフ・管理者用） -->
 @extends('layouts.default')
 
 @section('title','申請一覧')

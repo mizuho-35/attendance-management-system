@@ -1,3 +1,4 @@
+<!-- ログイン後共用デザイン -->
 <!DOCTYPE html>
 <html lang="ja">
 

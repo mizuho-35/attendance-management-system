@@ -1,3 +1,4 @@
+<!-- 管理者ログイン画面 -->
 @extends('layouts.auth')
 
 @section('title','管理者ログイン')

@@ -1,3 +1,4 @@
+<!-- 日勤怠一覧画面（管理者用） -->
 @extends('layouts.default')
 
 @section('title','勤怠一覧')
@@ -7,6 +8,7 @@
 @endsection
 
 @section('content')
+
 <div class="container">
     <h1 class="page__title">{{ \Carbon\Carbon::parse($date)->isoFormat('YYYY年M月D日') }}の勤怠一覧</h1>
     <div class="bar">

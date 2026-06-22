@@ -1,3 +1,4 @@
+<!-- スタッフ一覧画面（管理者用） -->
 @extends('layouts.default')
 
 @section('title','勤怠一覧')

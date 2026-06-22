@@ -1,3 +1,4 @@
+<!-- スタッフ会員登録画面 -->
 @extends('layouts.auth')
 
 @section('title','会員登録')

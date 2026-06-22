@@ -1,3 +1,4 @@
+<!-- 月次勤怠一覧画面（スタッフ・管理者用） -->
 @extends('layouts.default')
 
 @section('title','勤怠一覧')
@@ -24,11 +25,14 @@
         <a href="{{ isset($user) ? route('admin.attendance.staff', ['id' => $user->id, 'month' => $previousMonth]) : route('attendance.monthly_list', ['month' => $previousMonth]) }}" class="arrow prev-date">前月</a>
 
         <form action="" method="GET" id="month-form">
+            <!-- onclickでクリックしたら月選択カレンダーを表示し、showPickerでtype="date"属性を指定したinputのカレンダーを強制的に開く -->
             <div class="date-picker-container" onclick="document.getElementById('month-picker').showPicker()">
                 <span class="calendar-icon">📅</span>
                 <span id="display-date" class="display-date">
+                    <!-- laravelで選択中の年月を表示 -->
                     {{ \Carbon\Carbon::parse($currentMonth)->format('Y/m') }}
                 </span>
+                <!-- id="month-picker"はshowPickerで開く対象、valueで初期値としてその月の1日をセットしておく、onchangeで日付が変更されたらJSのhandleDateChange()を実行 -->
                 <input type="date" name="date" id="month-picker" value="{{ \Carbon\Carbon::parse($currentMonth)->format('Y-m-01') }}" onchange="handleDateChange(this.value)" class="hidden-input">
             </div>
         </form>
@@ -92,10 +96,15 @@
 @endsection
 
 @section('scripts')
+<!-- 月選択をした際に、画面切り替えをする機能 -->
 <script>
+// handleDateChangeという名の関数を作成
 function handleDateChange(dateStr) {
+    // 年月のみを切り出す　（2026-06-18の0文字目から7文字目までの2026-06を取出す）
     const month = dateStr.slice(0, 7);
+    // 画面に表示する年月日をYYYY/MM形式に変換して display-date という ID の要素に表示する
     document.getElementById('display-date').textContent = month.replace('-', '/');
+    // ページを「?month=YYYY-MM」付きで再読み込みする
     window.location.href = "?month=" + month;
 }
 </script>

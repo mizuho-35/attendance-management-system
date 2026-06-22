@@ -1,3 +1,4 @@
+<!-- 勤怠登録画面（スタッフ用） -->
 @extends('layouts.default')
 
 @section('title','勤怠登録')

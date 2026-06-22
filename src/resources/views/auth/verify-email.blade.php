@@ -1,3 +1,4 @@
+<!-- メール認証画面 -->
 @extends('layouts.auth')
 
 @section('title','メール認証')

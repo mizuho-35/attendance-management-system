@@ -1,3 +1,4 @@
+<!-- 勤怠詳細画面（管理者用） -->
 @extends('layouts.default')
 
 @section('title','勤怠詳細')

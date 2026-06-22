@@ -1,3 +1,4 @@
+<!-- 共用ヘッダー画面 -->
 <header class="header">
     <div class="header__logo">
         @php

@@ -1,3 +1,4 @@
+<!-- スタッフログイン画面 -->
 @extends('layouts.auth')
 
 @section('title','ログイン')

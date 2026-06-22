@@ -1,3 +1,4 @@
+<!-- ログイン、会員登録共用レイアウト -->
 <!DOCTYPE html>
 <html lang="ja">
 
